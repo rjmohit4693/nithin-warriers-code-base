@@ -1,0 +1,40 @@
+India - Delhi
+India - Haryana
+India - Uttar Pradesh
+India - Rajastan
+India - Jammu Kashmir
+India - Orissa
+India - West Bengal
+India - Manipur
+India - Tripura
+India - AndraPradesh
+India - Gujarat
+India - Maharashtra
+India - Madhya Pradesh
+India - Karnataka
+India - Tamil nadu
+India - Kerala
+India - Goa
+Sri Lanka - Colombo
+Sri Lanka - Kandalama
+Sri Lanka - Gampola
+Sri Lanka - Haragama
+West Indies - Jamaica
+West Indies - Barbados
+West Indies - Virgin Islands
+West Indies - Trinidad
+West Indies - Bermuda
+Australia - Melbourne
+Australia - Perth
+Australia - Sydney
+Australia - Adelaide
+Australia - Gulginni
+Pakistan - Islamabad
+Pakistan - Peshawar
+Pakistan - Lahore
+Pakistan - Karachi
+Bangladesh - Dhaka
+Bangladesh - Khulna
+Bangladesh - Silet
+South Africa - Johannesburg
+South Africa - Cape Town
