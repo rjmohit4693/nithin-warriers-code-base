@@ -1,0 +1,36 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <EditText
+        android:id="@+id/et_email_to"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="To:" />
+
+    <EditText
+        android:id="@+id/et_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_email_to"
+        android:layout_marginTop="8dp"
+        android:hint="Subject" />
+
+    <EditText
+        android:id="@+id/et_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_subject"
+        android:layout_marginTop="8dp"
+        android:hint="Message" />
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_message"
+        android:layout_marginTop="8dp"
+        android:text="Send" />
+
+</RelativeLayout>
