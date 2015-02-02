@@ -12,6 +12,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 import android.widget.LinearLayout.LayoutParams;
@@ -23,6 +24,7 @@ public class ShowFlipper extends Activity {
 	Button button2;
 	LinearLayout l1;
 	LinearLayout l2;
+	ScrollView sv1,sv2;
 	TextView tv1, tv2, tv3, tv4, tv5, tv6;
 	LayoutParams params;
 	GestureDetector gestureDetector;
@@ -36,6 +38,8 @@ public class ShowFlipper extends Activity {
 		flipper = new ViewFlipper(this);
 		l1 = new LinearLayout(this);
 		l2 = new LinearLayout(this);
+		sv1 = new ScrollView(this);
+		sv2 = new ScrollView(this);
 		button1 = new Button(this);
 		button2 = new Button(this);
 		button1.setText("Button 1");
@@ -51,6 +55,14 @@ public class ShowFlipper extends Activity {
 		tv4 = new TextView(this);
 		tv5 = new TextView(this);
 		tv6 = new TextView(this);
+		
+		tv1.setTextSize(20);
+		tv2.setTextSize(20);
+		tv3.setTextSize(20);
+		tv4.setTextSize(20);
+		tv5.setTextSize(20);
+		tv6.setTextSize(20);
+		
 		tv1.setText("text view 1");
 		tv2.setText("text view 2");
 		tv3.setText("text view 3");
@@ -60,14 +72,21 @@ public class ShowFlipper extends Activity {
 		l1.addView(tv1, params);
 		l1.addView(tv2, params);
 		l1.addView(tv3, params);
+		
 		// l1.addView(button1, params);
 		l2.addView(tv4, params);
 		l2.addView(tv5, params);
 		l2.addView(tv6, params);
+		
+		
 		// l2.addView(button2, params);
 
-		flipper.addView(l1);
-		flipper.addView(l2);
+		//flipper.addView(l1);
+		//flipper.addView(l2);
+		sv1.addView(l1);
+		sv2.addView(l2);
+		flipper.addView(sv1);
+		flipper.addView(sv2);
 		flipper.setClickable(true);
 		flipper.setOnTouchListener(new OnTouchListener() {
 
@@ -159,6 +178,18 @@ public class ShowFlipper extends Activity {
 		setContentView(flipper);
 	}
 
+	/*
+	 * If scrollview is the child for viewFlipper, then dispatchTouchEvent() has
+	 * to override otherwise fling won't work (non-Javadoc)
+	 * 
+	 * @see android.app.Activity#dispatchTouchEvent(android.view.MotionEvent)
+	 */
+	@Override
+	public boolean dispatchTouchEvent(MotionEvent ev) {
+		super.dispatchTouchEvent(ev);
+		return gestureDetector.onTouchEvent(ev);
+	}
+	
 	private Animation inFromRightAnimation() {
 		Animation inFromRight = new TranslateAnimation(
 				Animation.RELATIVE_TO_PARENT, +1.0f,
