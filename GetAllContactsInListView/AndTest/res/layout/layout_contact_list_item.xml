@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ImageView
+        android:id="@+id/iv_profile_img"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/profile_img"
+        android:padding="8dp"
+        android:background="@android:drawable/alert_light_frame"
+        android:scaleType="fitCenter"
+        android:layout_alignParentLeft="true" />
+    
+    <TextView
+        android:id="@+id/tv_contact_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nithin Warrier"
+        android:paddingTop="4dp"
+        android:paddingLeft="8dp"
+        android:textColor="@android:color/black"
+        android:layout_toRightOf="@id/iv_profile_img" />
+    
+    <TextView
+        android:id="@+id/tv_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+919740728956"
+        android:paddingLeft="8dp"
+        android:paddingTop="4dp"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:layout_toRightOf="@id/iv_profile_img"
+        android:layout_below="@id/tv_contact_name" />
+    
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="nithin.warier@gmail.com"
+        android:paddingLeft="8dp"
+        android:textSize="12sp"
+        android:textColor="@android:color/black"
+        android:layout_toRightOf="@id/iv_profile_img"
+        android:layout_below="@id/tv_phone_number" />
+
+</RelativeLayout>
