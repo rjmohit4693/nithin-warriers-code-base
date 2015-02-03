@@ -25,6 +25,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class AndTestActivity extends Activity {
 
@@ -40,7 +41,7 @@ public class AndTestActivity extends Activity {
 		lvContactsListView = (ListView) findViewById(R.id.lv_contacts);
 		pbGettingContacts = (ProgressBar) findViewById(R.id.pb_getting_contacts);
 
-		//fetchContacts();
+		// fetchContacts();
 		new FetchContacts().execute();
 	}
 
@@ -65,10 +66,12 @@ public class AndTestActivity extends Activity {
 
 	private void fetchContacts() {
 		ContentResolver resolver = getContentResolver();
-		//Cursor contactsCursor = resolver.query(Contacts.CONTENT_URI, null, null, null, null);
-		Cursor contactsCursor = resolver.query(Contacts.CONTENT_URI, null, null, null, Contacts._ID+" DESC LIMIT 10,10");
+		// Cursor contactsCursor = resolver.query(Contacts.CONTENT_URI, null,
+		// null, null, null);
+		Cursor contactsCursor = resolver.query(Contacts.CONTENT_URI, null, null, null, Contacts._ID
+				+ " DESC LIMIT 10,10");
 		for (contactsCursor.moveToFirst(); !contactsCursor.isAfterLast(); contactsCursor.moveToNext()) {
-			
+
 			String id = contactsCursor.getString(contactsCursor.getColumnIndex(Contacts._ID));
 			// to get phone number of respective contact
 			Cursor phoneCursor = resolver.query(Phone.CONTENT_URI, null, Phone.CONTACT_ID + " = ?",
@@ -111,9 +114,12 @@ public class AndTestActivity extends Activity {
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 			RelativeLayout child = (RelativeLayout) parent.getChildAt(position);
 			TextView tvPhoneNumber = (TextView) child.findViewById(R.id.tv_phone_number);
-			Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + tvPhoneNumber.getText().toString()));
-			startActivity(i);
-			Log.i(TAG, "child count: " + child.getChildCount());
+			if (tvPhoneNumber.getText().toString() == null || tvPhoneNumber.getText().toString().isEmpty()) {
+				Toast.makeText(AndTestActivity.this, "NO phone number to call", Toast.LENGTH_SHORT).show();
+			} else {
+				Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + tvPhoneNumber.getText().toString()));
+				startActivity(i);
+			}
 		}
 
 	};
